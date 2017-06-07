@@ -1,0 +1,11 @@
+
+public class MyEcho {
+
+	public static void main(String[] args) {
+		if(args.length!=2){
+			System.out.println("manual: java MyEcho hostname port");
+			System.exit(0);
+		}
+	}
+
+}

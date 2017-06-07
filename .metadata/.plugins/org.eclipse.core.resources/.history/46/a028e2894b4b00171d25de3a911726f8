@@ -1,0 +1,12 @@
+import java.awt.TextArea;
+import java.awt.TextField;
+
+public class IPaddress {
+
+	public static void main(String[] args) {
+		TextField inputText;
+		TextArea output;
+		
+	}
+
+}

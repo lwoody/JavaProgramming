@@ -1,0 +1,27 @@
+import java.io.IOException;
+import java.net.ServerSocket;
+import java.net.Socket;
+
+public class MyEchoServer {
+	//sever socket + accept ÇÊ¿ä
+	
+	public static void main(String[] args){
+		if(args.length !=1){
+			System.out.println("maual : java MyEchoServer port");
+			System.exit(0);
+		}
+		
+		try {
+			ServerSocket ss = new ServerSocket(Integer.parseInt(args[0]));
+			Socket s = ss.accept();
+			InputStream in = s.getInputStream();
+			OutputStream out = s.getOutputStream();
+			
+		} catch (NumberFormatException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+}

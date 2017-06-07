@@ -1,0 +1,12 @@
+
+public class MyEchoServer {
+	//sever socket + accept ÇÊ¿ä
+	
+	public static void main(String[] args){
+		if(args.length !=1){
+			System.out.println("maual : java MyEchoServer port");
+			System.exit(0);
+		}
+	}
+	
+}

@@ -1,0 +1,19 @@
+import java.net.Socket;
+import java.io.*;
+
+public class MyEcho {
+	//socket	
+	
+	public static void main(String[] args) {
+		if(args.length!=2){
+			System.out.println("manual: java MyEcho hostname port");
+			System.exit(0);
+		}
+		
+		String host = args[0];
+		int port = Integer.parseInt(args[1]);
+		Socket s = new Socket(host,port);
+		
+	}
+
+}
