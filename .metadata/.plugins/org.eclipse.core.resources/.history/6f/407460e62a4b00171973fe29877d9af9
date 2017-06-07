@@ -1,0 +1,41 @@
+package day_6_7;
+
+import java.awt.Button;
+import java.awt.Frame;
+import java.awt.TextArea;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class FileProgram{
+
+	public static void main(String[] args) {
+		
+	}
+
+}
+
+
+class FileGui extends Frame implements ActionListener{
+	
+	public FileGui(){
+		Frame f = new Frame();
+		Button readButton, saveButton;
+		TextArea ta = new TextArea();
+		
+		readButton = new Button("fileRead");
+		readButton.setBounds(20,100,100,30);
+		readButton.addActionListener(this);
+		
+		saveButton = new Button("fileSave");
+		saveButton.setBounds(20,100,100,30);
+		saveButton.addActionListener(this);
+		
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+}

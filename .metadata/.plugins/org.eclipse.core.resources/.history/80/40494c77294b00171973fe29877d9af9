@@ -1,0 +1,36 @@
+package day_6_7;
+
+import java.awt.Button;
+import java.awt.Frame;
+import java.awt.TextField;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class EasyEvent implements ActionListener{
+
+	public static void main(String[] args) {
+		
+	}
+	
+	Button b1;
+	Frame f1;
+	TextField tf1;
+	public EasyEvent(){
+		b1 = new Button("fdsa");
+		b1.setBounds(20,100,100,30);
+		b1.addActionListener(this);
+		
+		tf1 = new TextField();
+		tf1.setBounds(20, 30, 100, 30);
+		
+		f1 = new Frame();
+		f1.setLayout(null);
+		f1.add(b1);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		
+	}
+
+}
