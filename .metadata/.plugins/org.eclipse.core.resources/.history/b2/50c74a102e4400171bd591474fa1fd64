@@ -1,0 +1,19 @@
+package day_5_27;
+
+import java.io.FileNotFoundException;
+import java.io.RandomAccessFile;
+
+public class RandomAccess {
+
+	public static void main(String[] args) {
+		
+		try {
+			RandomAccessFile raf = new RandomAccessFile("abc.dat","rw");
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+
+}

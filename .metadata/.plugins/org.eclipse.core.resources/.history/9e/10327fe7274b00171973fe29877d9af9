@@ -1,0 +1,22 @@
+package day_6_7;
+
+import java.awt.FlowLayout;
+import java.awt.Frame;
+import java.awt.*;
+
+public class TextArea {
+
+	public static void main(String[] args) {
+		
+		Frame f = new Frame();
+		f.setLayout(new FlowLayout());
+		TextAreaTest ta = new TextAreaTest("fda",5,20);
+		ta.append("fdsa");
+		f.add(ta);
+		f.setSize(200, 100);
+		f.setVisible(true);
+		System.out.println(ta.getText());
+		
+	}
+
+}

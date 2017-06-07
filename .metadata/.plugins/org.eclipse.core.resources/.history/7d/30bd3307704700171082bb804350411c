@@ -1,0 +1,73 @@
+package day_6_2_swingtest;
+
+import java.awt.Button;
+import java.awt.Frame;
+import java.awt.Label;
+import java.awt.TextField;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
+public class BMIGUI {
+	public static void main(String[] args){
+		BMIGUI2 a = new BMIGUI2();
+	}
+}
+
+class BMIGUI2 extends Frame implements ActionListener{
+	
+	private Button b1 = new Button("BMI계산");
+	private Label la1 = new Label("몸무게 : ");
+	private Label la2 = new Label("키     : ");
+	private TextField tf1 = new TextField();
+	private TextField tf2 = new TextField();
+	private TextField tf3 = new TextField();
+	
+	public BMIGUI2(){
+		this.setLayout(null);
+		b1.setSize(100,70);
+		b1.setLocation(200, 300);
+		this.add(b1);
+		b1.addActionListener(this);
+		
+		la1.setSize(90,30);
+		la1.setLocation(20,70);
+		this.add(la1);
+		
+		la2.setSize(90,30);
+		la2.setLocation(20,100);
+		this.add(la2);
+		
+		tf1.setSize(70,30);
+		tf1.setLocation(120,70);
+		this.add(tf1);
+		
+		tf2.setSize(70,30);
+		tf2.setLocation(120,100);
+		this.add(tf2);
+		
+		tf3.setSize(400,50);
+		tf3.setLocation(20,400);
+		this.add(tf3);
+		
+		this.setSize(500, 500);
+		this.setVisible(true);
+		
+		addWindowListener(new WindowAdapter(){
+			public void windowClosing(WindowEvent e1){
+				dispose();
+				System.exit(0);
+			}
+		});
+		
+		
+		
+	}
+	
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		
+	}
+	
+}

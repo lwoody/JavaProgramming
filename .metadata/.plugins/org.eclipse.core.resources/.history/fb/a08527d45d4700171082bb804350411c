@@ -1,0 +1,13 @@
+package day_6_2;
+
+public class SynchronizeTest {
+
+	public static void main(String[] args) {
+		SyncTest s = new SyncTest();
+	}
+
+}
+
+class SysncTest{
+	
+}

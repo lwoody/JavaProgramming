@@ -1,0 +1,15 @@
+
+import java.awt.*;
+
+public class HelloAwt extends Frame{
+	
+	public HelloAwt(String s){
+		super(s);
+	}
+	
+	public static void main(String[] args){
+		HelloAwt f = new HelloAwt("frame");
+		f.setSize(200,200);
+		f.setVisible(true);
+	}
+}

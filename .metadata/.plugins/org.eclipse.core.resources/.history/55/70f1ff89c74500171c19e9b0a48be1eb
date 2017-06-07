@@ -1,0 +1,28 @@
+package day_5_31;
+
+public class jdbc_test01 {
+
+	public static void main(String[] args) {
+		
+		String sql = "select ename,sal,hiredate from emp";
+		String sql1 = "select ename,sal,hiredate from emp"
+						+ "where ename = 'SMITH'";
+		
+		//1. jdbc driver loading
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			String url = "jdbc:oracle:thin:@127.0.0.1:1521:xe";
+			String user = "scott";
+			String pw = "tiger";
+		} catch (ClassNotFoundException e) {
+			System.out.println("driver check");
+		}
+		
+		//2. db connection
+		DriverManager
+		
+		
+		System.out.println("===main end===");
+	}
+
+}

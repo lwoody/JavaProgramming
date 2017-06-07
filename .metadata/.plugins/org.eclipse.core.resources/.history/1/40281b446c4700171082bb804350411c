@@ -1,0 +1,20 @@
+package day_6_2_swingtest;
+
+import java.awt.Frame;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class BMIGUI {
+	public static void main(String[] args){
+		BMIGUI2 a = new BMIGUI2();
+	}
+}
+
+class BMIGUI2 extends Frame implements ActionListener{
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		
+	}
+	
+}

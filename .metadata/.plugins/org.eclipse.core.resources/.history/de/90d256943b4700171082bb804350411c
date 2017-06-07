@@ -1,0 +1,26 @@
+package day_6_2;
+
+
+class ThreadA implements Runnable{
+
+	@Override
+	public void run() {
+		while(true){
+			System.out.println(Thread.currentThread().getName()+"run");
+		}	
+	}
+}
+
+public class ThreadTest {
+
+	public static void main(String[] args) {
+		
+		ThreadA a1 = new ThreadA();
+		ThreadA a2 = new ThreadA();
+		
+		a1.run();
+		a2.run();
+		
+	}
+
+}

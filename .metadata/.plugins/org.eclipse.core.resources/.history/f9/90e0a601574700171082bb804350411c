@@ -1,0 +1,42 @@
+package day_6_2;
+
+public class ThreadTest2 {
+
+	public static void main(String[] args) {
+
+		SimpleThread a, b;
+		a = new SimpleThread("one");
+		b = new SimpleThread("two");
+		
+		Thread aa = new Thread(a);
+		Thread bb = new Thread(b);
+
+		aa.start();
+		bb.start();
+
+	}
+
+}
+
+class SimpleThread implements Runnable {
+
+	String name;
+
+	public SimpleThread(String name) {
+		this.name = name;
+	}
+
+	@Override
+	public void run() {
+		for (int i = 0; i < 10; i++) {
+			System.out.println(Thread.currentThread().getName() + " run - "+i);
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+		System.out.println(Thread.currentThread().getName()+"Done");
+	}
+
+}

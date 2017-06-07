@@ -1,0 +1,11 @@
+package day_6_2_swingtest;
+
+public class BMIGUI {
+	public static void main(String[] args){
+		BMIGUI2 a = new BMIGUI2();
+	}
+}
+
+class BMIGUI2 extends Frame implements ActionListener{
+	
+}

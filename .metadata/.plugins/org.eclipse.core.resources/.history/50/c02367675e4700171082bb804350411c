@@ -1,0 +1,57 @@
+package day_6_2;
+
+public class SynchronizeTest {
+
+	public static void main(String[] args) {
+		SyncTest s = new SyncTest();
+		Sync s1 = new Sync(1,s);
+		Sync s2 = new Sync(2,s);
+		Sync s3 = new Sync(3,s);
+		Sync s4 = new Sync(4,s);
+	}
+
+}
+
+class SyncTest{
+	
+	synchronized void a(){
+		for(int i=0; i <30; i++){
+			System.out.println("a");
+			Thread.sleep(50);
+		}
+	}
+	synchronized void b(){
+		for(int i=0; i <30; i++){
+			System.out.println("b");
+			Thread.sleep(50);
+		}
+	}
+	synchronized void c(){
+		for(int i=0; i <30; i++){
+			System.out.println("c");
+			Thread.sleep(50);
+		}
+	}
+	synchronized void d(){
+		for(int i=0; i <30; i++){
+			System.out.println("d");
+			Thread.sleep(50);
+		}
+	}
+	
+}
+
+class Sync implements Runnable{
+	
+	int num;
+	SyncTest
+	
+	public Sync(int num, SyncTest sync){
+		
+	}
+
+	@Override
+	public void run() {
+		
+	}
+}

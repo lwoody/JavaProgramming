@@ -1,0 +1,30 @@
+package day_6_2;
+
+public class ThreadTest3 {
+
+	public static void main(String[] args) {
+		Thread t1 = new Thread(new RunnableThread("one"));
+		Thread t2 = new Thread(new RunnableThread("two"));
+		
+		t1.start();
+		t2.start();
+	}
+}
+
+class RunnableThread implements Runnable{
+	
+	String name;
+	
+	public RunnableThread(String name){
+		this.name = name;
+	}
+
+	@Override
+	public void run() {
+		for(int i=0;i<10;i++){
+			System.out.println(Thread.currentThread().getName()+" run-"+i);
+		}
+		System.out.println(Thread.currentThread().getName()+"done");
+	}
+	
+}

@@ -1,0 +1,16 @@
+package day_6_2;
+
+
+class ThreadA extends Thread{
+	public void run(){
+		System.out.println("run");
+	}
+}
+
+public class ThreadTest {
+
+	public static void main(String[] args) {
+		
+	}
+
+}

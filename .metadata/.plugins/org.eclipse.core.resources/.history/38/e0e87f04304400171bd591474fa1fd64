@@ -1,0 +1,22 @@
+package day_5_27;
+
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.util.Date;
+
+public class ObjectSerialize {
+	
+	public static void main(String[] args){
+		
+		Date date = new Date();
+		
+		try {
+			FileOutputStream fos = new FileOutputStream("date.ser");
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+
+}

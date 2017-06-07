@@ -1,0 +1,16 @@
+package day_5_27;
+
+import java.util.Scanner;
+
+public class Test02 {
+
+	public static void main(String[] args) {
+		
+		// test.txt File에 키보드로부터 입력받은 문자열을 저장
+		Scanner sc = new Scanner(System.in);
+		
+		
+		
+	}
+
+}

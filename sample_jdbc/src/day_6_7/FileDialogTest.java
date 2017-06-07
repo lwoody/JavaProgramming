@@ -1,0 +1,21 @@
+package day_6_7;
+
+import java.awt.FileDialog;
+import java.awt.Frame;
+
+public class FileDialogTest extends Frame {
+	
+	FileDialog fd;
+	public FileDialogTest(){
+		//fd = new FileDialog(this,"open",FileDialog.LOAD);
+		fd = new FileDialog(this,"save",FileDialog.SAVE);
+		fd.setSize(300,300);
+		fd.setVisible(true);
+		System.out.println(fd.getFile());
+	}
+
+	public static void main(String[] args) {
+		FileDialogTest a = new FileDialogTest();
+	}
+
+}

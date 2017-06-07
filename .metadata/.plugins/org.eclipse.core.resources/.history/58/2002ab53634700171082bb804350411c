@@ -1,0 +1,20 @@
+package day_6_2;
+
+public class ConditionFactorTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
+
+class ConditionFactor{
+	
+	final static int stweight = 30;
+	int bmi;
+	int weight;
+	int height;
+	
+	
+}

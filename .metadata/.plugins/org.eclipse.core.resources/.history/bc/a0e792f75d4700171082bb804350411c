@@ -1,0 +1,19 @@
+package day_6_2;
+
+public class SynchronizeTest {
+
+	public static void main(String[] args) {
+		SyncTest s = new SyncTest();
+		Synchronized s1 = new Synchronized(1,s);
+		Synchronized s2 = new Synchronized(2,s);
+		Synchronized s3 = new Synchronized(3,s);
+		Synchronized s4 = new Synchronized(4,s);
+	}
+
+}
+
+class SyncTest{
+	
+}
+
+class SynchronizedTest

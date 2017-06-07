@@ -1,0 +1,9 @@
+
+import java.awt.*;
+
+public class HelloAwt extends Frame{
+	
+	public HelloAwt(String s){
+		super(s);
+	}
+}

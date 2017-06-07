@@ -1,0 +1,47 @@
+package day_6_2;
+
+
+class ThreadA implements Runnable{
+
+	@Override
+	public void run() {
+		while(true){
+			System.out.println(Thread.currentThread().getName()+"run");
+		}	
+	}
+}
+
+class ThreadB implements Runnable{
+
+	@Override
+	public void run() {
+		while(true){
+			System.out.println(Thread.currentThread().getId()+"run");
+		}	
+	}
+}
+
+class ThreadExam extends Thread{
+	public void run(){
+		System.out.println(getName()+"run");
+	}
+}
+
+public class ThreadTest {
+
+	public static void main(String[] args) {
+		
+		ThreadA a = new ThreadA();
+		ThreadB b = new ThreadB();
+		ThreadExam c = new ThreadExam();
+		
+		Thread threadA = new Thread(a);
+		Thread threadB = new Thread(b);
+		
+		threadA.start();
+		threadB.start();
+		c.start();
+		
+	}
+
+}

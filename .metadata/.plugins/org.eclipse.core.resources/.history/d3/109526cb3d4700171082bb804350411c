@@ -1,0 +1,25 @@
+package day_6_2;
+
+public class ThreadTest2 {
+
+	public static void main(String[] args) {
+		
+		SimpleThread a,b;
+		a = new SimpleThread("one");
+		
+	}
+
+}
+
+class SimpleThread extends Thread{
+	
+	String name;
+	
+	public SimpleThread(String name){
+		this.name = name;
+	}
+	
+	public void run(){
+		System.out.println("fdsafda");
+	}
+}

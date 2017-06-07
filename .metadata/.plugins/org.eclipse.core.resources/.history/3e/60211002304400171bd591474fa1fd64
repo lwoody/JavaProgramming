@@ -1,0 +1,9 @@
+package day_5_27;
+
+public class ObjectSerialize {
+	
+	public static void main(String[] args){
+		
+	}
+
+}

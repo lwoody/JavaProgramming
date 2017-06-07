@@ -1,0 +1,12 @@
+package day_6_7;
+
+import java.awt.Frame;
+
+public class Frame2 extends Frame{
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

@@ -1,0 +1,26 @@
+package day_6_2;
+
+public class ConditionFactorTest {
+
+	public static void main(String[] args) {
+		ConditionFactor cf = new ConditionFactor(60, 179);
+		System.out.println(cf.result);
+	}
+
+}
+
+class ConditionFactor{
+	
+	final int stweight = 30;
+	double weight;
+	double height;
+	double bmi;
+	String result;
+	
+	public ConditionFactor(int weight, int height){
+		this.bmi = weight/height*0.01;
+		if(bmi>stweight) this.result = "고도비만";
+		else this.result = "정상";
+	}
+	
+}
