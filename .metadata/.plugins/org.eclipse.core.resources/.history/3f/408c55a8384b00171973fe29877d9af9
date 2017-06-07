@@ -2,7 +2,6 @@ package day_6_7;
 
 import java.awt.Button;
 import java.awt.Color;
-import java.awt.FileDialog;
 import java.awt.Font;
 import java.awt.Frame;
 import java.awt.TextArea;
@@ -11,12 +10,10 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.BufferedOutputStream;
-import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.sql.PreparedStatement;
@@ -76,18 +73,12 @@ class FileGui extends Frame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 
 		FileWriter fo = null;
-		FileReader fr = null;
+		FileReader fr
 		BufferedWriter bo = null;
-		BufferedReader br = null;
 
 		if (e.getSource() == saveButton) {
-			
-			FileDialog fd = new FileDialog(this,"fileread",FileDialog.LOAD);
-			fd.setVisible(true);
-			String filePath = fd.getDirectory()+fd.getFile();
-			
 			try {
-				fo = new FileWriter(filePath);
+				fo = new FileWriter("result.txt");
 				bo = new BufferedWriter(fo);
 				bo.write(ta.getText());
 				bo.flush();
@@ -105,29 +96,20 @@ class FileGui extends Frame implements ActionListener {
 			}
 		}
 		
-		else if(e.getSource() == readButton){
-			
-			FileDialog fd = new FileDialog(this,"fileread",FileDialog.LOAD);
-			fd.setVisible(true);
-			String filePath = fd.getDirectory()+fd.getFile();
-			
+		else if(e.equals(readButton)){
 			try {
-				fr = new FileReader(filePath);
-				br = new BufferedReader(fr);
-				String readData=null;
-				String content = null;
-				while((readData=br.readLine())!=null){
-					content+=readData+"\n";
-				}
-				ta.setText(content);
+				fo = new FileWriter("result.txt");
+				bo = new BufferedWriter(fo);
+				bo.write(ta.getText());
+				bo.flush();
 			} catch (IOException e1) {
 				e1.printStackTrace();
 			} finally {
 				try {
-					if (fr != null)
-						fr.close();
-					if (br != null)
-						br.close();
+					if (fo != null)
+						fo.close();
+					if (bo != null)
+						bo.close();
 				} catch (IOException e1) {
 					e1.printStackTrace();
 				}

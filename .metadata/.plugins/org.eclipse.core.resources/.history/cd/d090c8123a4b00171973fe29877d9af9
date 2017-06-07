@@ -81,13 +81,8 @@ class FileGui extends Frame implements ActionListener {
 		BufferedReader br = null;
 
 		if (e.getSource() == saveButton) {
-			
-			FileDialog fd = new FileDialog(this,"fileread",FileDialog.LOAD);
-			fd.setVisible(true);
-			String filePath = fd.getDirectory()+fd.getFile();
-			
 			try {
-				fo = new FileWriter(filePath);
+				fo = new FileWriter("result.txt");
 				bo = new BufferedWriter(fo);
 				bo.write(ta.getText());
 				bo.flush();
@@ -117,17 +112,18 @@ class FileGui extends Frame implements ActionListener {
 				String readData=null;
 				String content = null;
 				while((readData=br.readLine())!=null){
-					content+=readData+"\n";
+					content+=readData;
 				}
 				ta.setText(content);
+				br.flush();
 			} catch (IOException e1) {
 				e1.printStackTrace();
 			} finally {
 				try {
-					if (fr != null)
-						fr.close();
-					if (br != null)
-						br.close();
+					if (fo != null)
+						fo.close();
+					if (bo != null)
+						bo.close();
 				} catch (IOException e1) {
 					e1.printStackTrace();
 				}
