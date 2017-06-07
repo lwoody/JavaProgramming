@@ -79,10 +79,9 @@ class FileGui extends Frame implements ActionListener {
 		FileReader fr = null;
 		BufferedWriter bo = null;
 		BufferedReader br = null;
-		
+
 		if (e.getSource() == saveButton) {
 			
-			//file explorer pop up
 			FileDialog fd = new FileDialog(this,"fileread",FileDialog.LOAD);
 			fd.setVisible(true);
 			String filePath = fd.getDirectory()+fd.getFile();
@@ -108,7 +107,6 @@ class FileGui extends Frame implements ActionListener {
 		
 		else if(e.getSource() == readButton){
 			
-			//file explorer pop up
 			FileDialog fd = new FileDialog(this,"fileread",FileDialog.LOAD);
 			fd.setVisible(true);
 			String filePath = fd.getDirectory()+fd.getFile();
