@@ -15,10 +15,9 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
-import java.io.IOException;
 import java.sql.PreparedStatement;
 
-public class FileProgram {
+public class FileProgram{
 
 	public static void main(String[] args) {
 		FileGui gui = new FileGui();
@@ -26,63 +25,65 @@ public class FileProgram {
 
 }
 
-class FileGui extends Frame implements ActionListener {
 
+class FileGui extends Frame implements ActionListener{
+		
 	TextArea ta;
 	Button readButton, saveButton;
-
-	public FileGui() {
-
-		ta = new TextArea("fda", 5, 20);
-		ta.setSize(300, 500);
-		ta.setLocation(10, 30);
-
-		readButton = new Button("fileRead");
-		readButton.setSize(100, 70);
-		readButton.setLocation(350, 300);
-		readButton.setForeground(new Color(255, 255, 255));
-		readButton.setBackground(new Color(0, 0, 255));
-		readButton.setFont(new Font("µ¸¿ò", Font.BOLD, 20));
-		readButton.addActionListener(this);
-
-		saveButton = new Button("fileSave");
-		saveButton.setSize(100, 70);
-		saveButton.setLocation(350, 400);
-		saveButton.setForeground(new Color(255, 255, 255));
-		saveButton.setBackground(new Color(0, 0, 255));
-		saveButton.setFont(new Font("µ¸¿ò", Font.BOLD, 20));
-		saveButton.addActionListener(this);
-
-		this.setLayout(null);
-		this.setSize(500, 500);
 		
-		this.add(ta);
-		this.add(readButton);
-		this.add(saveButton);
-		this.setVisible(true);
-
-		this.addWindowListener(new WindowAdapter() {
-			public void windowClosing(WindowEvent w) {
+	public FileGui(){
+		
+		Frame f = new Frame();
+		ta = new TextArea("fda",5,20);
+		ta.setSize(300,500);
+		ta.setLocation(10,30);
+		
+		readButton = new Button("fileRead");
+		readButton.setSize(100,70);
+		readButton.setLocation(350, 300);
+		readButton.setForeground(new Color(255,255,255));
+		readButton.setBackground(new Color(0,0,255));
+		readButton.setFont(new Font("µ¸¿ò",Font.BOLD,20));
+		readButton.addActionListener(this);
+		
+		saveButton = new Button("fileSave");
+		saveButton.setSize(100,70);
+		saveButton.setLocation(350, 400);
+		saveButton.setForeground(new Color(255,255,255));
+		saveButton.setBackground(new Color(0,0,255));
+		saveButton.setFont(new Font("µ¸¿ò",Font.BOLD,20));
+		saveButton.addActionListener(this);
+		
+		f.setLayout(null);
+		f.setSize(500, 500);
+		f.add(ta);
+		f.add(readButton);
+		f.add(saveButton);
+		f.setVisible(true);
+		
+		f.addWindowListener(new WindowAdapter() {
+			public void windowClosing(WindowEvent w){
 				System.exit(0);
 			}
 		});
-
+		
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-
+		
 		FileWriter fo;
 		BufferedWriter bo;
-
 		try {
 			fo = new FileWriter("result.txt");
 			bo = new BufferedWriter(fo);
+			
 			bo.write(ta.getText());
-		} catch (IOException e1) {
+			
+		} catch (FileNotFoundException e1) {
 			e1.printStackTrace();
 		}
-
+		
 	}
-
+	
 }

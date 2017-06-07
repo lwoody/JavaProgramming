@@ -61,7 +61,7 @@ class FileGui extends Frame implements ActionListener {
 		this.add(saveButton);
 		this.setVisible(true);
 
-		this.addWindowListener(new WindowAdapter() {
+		f.addWindowListener(new WindowAdapter() {
 			public void windowClosing(WindowEvent w) {
 				System.exit(0);
 			}

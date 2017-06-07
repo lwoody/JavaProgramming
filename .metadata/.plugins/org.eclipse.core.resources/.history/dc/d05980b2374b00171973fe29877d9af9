@@ -33,6 +33,7 @@ class FileGui extends Frame implements ActionListener {
 
 	public FileGui() {
 
+		Frame f = new Frame();
 		ta = new TextArea("fda", 5, 20);
 		ta.setSize(300, 500);
 		ta.setLocation(10, 30);
@@ -53,15 +54,14 @@ class FileGui extends Frame implements ActionListener {
 		saveButton.setFont(new Font("µ¸¿ò", Font.BOLD, 20));
 		saveButton.addActionListener(this);
 
-		this.setLayout(null);
-		this.setSize(500, 500);
-		
-		this.add(ta);
-		this.add(readButton);
-		this.add(saveButton);
-		this.setVisible(true);
+		f.setLayout(null);
+		f.setSize(500, 500);
+		f.add(ta);
+		f.add(readButton);
+		f.add(saveButton);
+		f.setVisible(true);
 
-		this.addWindowListener(new WindowAdapter() {
+		f.addWindowListener(new WindowAdapter() {
 			public void windowClosing(WindowEvent w) {
 				System.exit(0);
 			}
