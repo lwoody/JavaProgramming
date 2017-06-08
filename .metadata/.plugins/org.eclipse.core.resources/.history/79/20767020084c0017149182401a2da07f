@@ -1,0 +1,16 @@
+package multiClient;
+
+public class MultiClient {
+
+	public static void main(String[] args) {
+		if(args.length!=1){
+			System.out.println("check manual..");
+			System.exit(0);
+		}
+		
+		String serverIp = "127.0.0.1";
+		Socket socekt = new Socket(serverIP,7777);
+		
+	}
+
+}

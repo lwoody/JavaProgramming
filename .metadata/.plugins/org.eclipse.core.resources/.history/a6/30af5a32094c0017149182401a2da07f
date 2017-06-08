@@ -1,0 +1,47 @@
+package multiClient;
+
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.net.Socket;
+import java.net.UnknownHostException;
+
+public class MultiClient {
+
+	public static void main(String[] args) {
+		if(args.length!=1){
+			System.out.println("check manual..");
+			System.exit(0);
+		}
+		
+		String serverIp = "fdsafd";
+		try {
+			Socket socekt = new Socket(serverIp,7777);
+			System.out.println("connected with server!");
+			Thread sender = new Thread(new ClientSender(socket,args[0]));
+			
+		} catch (UnknownHostException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}	
+	}
+	
+	static class ClientSender extends Thread{
+		Socket socket;
+		DataOutputStream out;
+		String name;
+		
+		ClientSender(Socket socket, String name){
+			this.socket = socket;
+			try {
+				out = new DataOutputStream(socket.getOutputStream());
+				this.name = name;
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	
+
+}

@@ -1,0 +1,69 @@
+package multiClient;
+
+import java.io.DataInputStream;
+import java.io.DataOutput;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.util.Collections;
+import java.util.HashMap;
+
+public class MultiServer {
+	
+	HashMap clients;
+	
+	MultiServer(){
+		clients = new HashMap();
+		Collections.synchronizedMap(clients);//?
+	}
+	
+	public void start(){
+		ServerSocket serverSocket = null;
+		Socket socket = null;
+		
+		try {
+			serverSocket = new ServerSocket(7777);
+			System.out.println("server running... ");
+			
+			while(true){
+				socket = serverSocket.accept();
+				ServerReciever recieverThread = new ServerReciever(socket);
+				recieverThread.start();
+				
+			}
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+	
+	class ServerReciever extends Thread{
+		Socket socket;
+		DataInputStream in;
+		DataOutputStream out;
+		
+		public ServerReciever(Socket socket){
+			this.socket = socket;
+			try {
+				this.in = new DataInputStream(socket.getInputStream());
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	
+
+	public static void main(String[] args) {
+//		if(args.length!=1){
+//			System.out.println("manual : fdsafd");
+//			System.exit(0);
+//		}
+		
+		
+	}
+
+}

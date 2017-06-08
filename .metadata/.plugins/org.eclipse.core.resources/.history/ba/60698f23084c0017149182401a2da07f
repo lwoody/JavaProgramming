@@ -1,0 +1,19 @@
+package multiClient;
+
+import java.net.Socket;
+
+public class MultiClient {
+
+	public static void main(String[] args) {
+		if(args.length!=1){
+			System.out.println("check manual..");
+			System.exit(0);
+		}
+		
+		String serverIp = "fdsafd";
+		Socket socekt = new Socket(serverIp,7777);
+		
+		
+	}
+
+}

@@ -1,0 +1,29 @@
+package multiClient;
+
+import java.io.IOException;
+import java.net.Socket;
+import java.net.UnknownHostException;
+
+public class MultiClient {
+
+	public static void main(String[] args) {
+		if(args.length!=1){
+			System.out.println("check manual..");
+			System.exit(0);
+		}
+		
+		String serverIp = "fdsafd";
+		try {
+			Socket socekt = new Socket(serverIp,7777);
+		} catch (UnknownHostException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+	}
+
+}

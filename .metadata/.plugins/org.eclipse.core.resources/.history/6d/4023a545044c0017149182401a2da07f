@@ -1,0 +1,12 @@
+package multiClient;
+
+public class MultiServer {
+
+	public static void main(String[] args) {
+		if(args.length!=1){
+			System.out.println("manual : fdsafd");
+			System.exit(0);
+		}
+	}
+
+}
