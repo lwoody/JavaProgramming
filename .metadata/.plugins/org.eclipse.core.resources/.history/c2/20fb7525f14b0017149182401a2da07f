@@ -1,0 +1,18 @@
+package URLProgramming;
+
+import java.net.MalformedURLException;
+import java.net.URL;
+
+public class URLInputStream {
+
+	public static void main(String[] args) {
+		try {
+			URL obj = new URL(args[0]);
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+
+}

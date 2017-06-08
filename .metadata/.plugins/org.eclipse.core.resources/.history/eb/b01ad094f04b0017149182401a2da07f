@@ -42,7 +42,7 @@ public class UDPMyEcho {
 				
 				recv_packet = new DatagramPacket(buffer,buffer.length);
 				socket.receive(recv_packet);
-				String result = new String(buffer);//recieved data to string
+				String result = new String(buffer);//recived data to string
 				System.out.println("Echo data: "+result);
 			}
 		} catch(IOException e){
