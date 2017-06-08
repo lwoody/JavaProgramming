@@ -19,7 +19,7 @@ public class MultiClient {
 		try {
 			Socket socket = new Socket(serverIp, 7999);
 			System.out.println("connected with server!");
-			Thread sender = new Thread(new ClientSender(socket, args[0]));
+			Thread sender = new Thread(new ClientSender(socket, args[0]));//args[0]Àº id(name)
 			Thread receiver = new Thread(new ClientReceiver(socket));
 
 			sender.start();
