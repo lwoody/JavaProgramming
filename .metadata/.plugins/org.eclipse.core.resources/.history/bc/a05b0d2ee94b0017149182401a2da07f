@@ -1,0 +1,14 @@
+package UDPprogramming;
+
+public class UDPMyEcho {
+
+	final static int MAXBUFFER = 512;
+
+	public static void main(String[] args) {
+		if (args.length != 2) {
+			System.out.println("manual : java UDPMyEcho localhost port");
+			System.exit(0);
+		}
+	}
+
+}

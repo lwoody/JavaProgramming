@@ -1,0 +1,28 @@
+package UDPprogramming;
+
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
+
+public class UDPMyEchoServer {
+
+	final int MAXBUFFER = 512; // temporary room size
+
+	public static void main(String[] args) {
+		int arg_port = Integer.parseInt(args[0]); // port number
+		new UDPMyEchoServer().work(arg_port);
+	}
+
+	void work(int arg_port) {
+		int port = arg_port;// get current port number
+		byte buffer[] = new byte[MAXBUFFER];
+		try {
+			DatagramSocket socket = new DatagramSocket(port);
+			DatagramPacket recv_packet;
+			System.out.println("running the server...");
+
+		} catch (Exception e) {
+
+		}
+	}
+
+}

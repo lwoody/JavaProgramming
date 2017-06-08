@@ -22,7 +22,7 @@ public class Neon {
 class NeonFrame extends Frame implements ActionListener {
 	// button, textfield
 	Button b1, b2;
-	String text = "           I LOVE YOU";
+	String text = "I LOVE YOU                         ";
 	Timer t1;
 	TextField tf;
 	char[] list;
@@ -34,6 +34,7 @@ class NeonFrame extends Frame implements ActionListener {
 
 		b1 = new Button("Start");
 		b2 = new Button("End");
+		b2.enable(false);
 		b1.setSize(200, 100);
 		b1.setLocation(50, 350);
 		b2.setSize(200, 100);
@@ -84,10 +85,14 @@ class NeonFrame extends Frame implements ActionListener {
 					tf.setText(s);
 				}
 			};
+			b1.enable(false);
+			b2.enable(true);
 
 			t1 = new Timer();
 			this.t1.scheduleAtFixedRate(task, 0, 100);
 		} else if (e.getSource() == b2) {
+			b1.enable(true);
+			b2.enable(false);
 			this.t1.cancel();
 		}
 

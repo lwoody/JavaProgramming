@@ -31,7 +31,7 @@ public class MyEcho {
 				bw.newLine();
 				bw.flush();
 				recMsg = br.readLine();
-				System.out.print("되돌아온 Data: " + recMsg);
+				System.out.println("되돌아온 Data: " + recMsg);
 			}
 			s.close();
 		} catch (UnknownHostException e) {

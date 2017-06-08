@@ -1,0 +1,31 @@
+package UDPprogramming;
+
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+
+public class UDPMyEcho {
+
+	final static int MAXBUFFER = 512;
+
+	public static void main(String[] args) {
+		if (args.length != 2) {
+			System.out.println("manual : java UDPMyEcho localhost port");
+			System.exit(0);
+		}
+		
+		byte[] buffer = new byte[MAXBUFFER];
+		int port = Integer.parseInt(args[1]);
+
+			InetAddress inetaddr = new InetAddress.getByName(args[0]);
+			DatagramSocket socket = new DatagramSocket();
+			DatagramPacket send_packet;
+			DatagramPacket recv_packet;
+			
+		} catch(UnknownHostException e1){
+			
+		}
+	}
+
+}
