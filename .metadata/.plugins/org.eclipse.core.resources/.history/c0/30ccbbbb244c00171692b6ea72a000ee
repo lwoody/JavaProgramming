@@ -1,0 +1,15 @@
+package p075_join2_Args2Q;
+
+//GirlFriend.java
+
+class GirlFriend extends Thread {
+	public void run() {
+		
+		while(true){
+			System.out.print(i);			
+			System.out.println("지금 지하철타러 가는중");
+			
+		}
+		
+	}
+}

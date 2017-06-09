@@ -1,0 +1,10 @@
+package p075_join_noArgsQ;
+
+//GirlFriend.java
+
+class GirlFriend extends Thread {
+	public void run() {
+	//여기실습
+		
+	}
+}
