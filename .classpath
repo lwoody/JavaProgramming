@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="JavaSvn/src"/>
+	<classpathentry kind="src" path="Networking/src"/>
+	<classpathentry kind="src" path="practiceWork/src"/>
+	<classpathentry kind="src" path="sample_jdbc/src"/>
+	<classpathentry kind="src" path="sample/src"/>
+	<classpathentry kind="src" path="sample2/src"/>
+	<classpathentry kind="src" path="Chat"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="JavaSvn/bin"/>
+</classpath>

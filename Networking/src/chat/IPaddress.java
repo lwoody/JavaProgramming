@@ -13,7 +13,7 @@ public class IPaddress {
 
 	TextField inputText;
 	TextArea output;
-
+	
 	public void work() {
 		Frame f = new Frame("IPaddress");
 		output = new TextArea();
