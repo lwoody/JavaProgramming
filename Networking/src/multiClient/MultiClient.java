@@ -15,11 +15,11 @@ public class MultiClient {
 			System.exit(0);
 		}
 
-		String serverIp = "70.12.114.90";//특정 서버 ip (여기에 데이터 공유하게됨)
+		String serverIp = "70.12.114.90";
 		try {
 			Socket socket = new Socket(serverIp, 7999);
 			System.out.println("connected with server!");
-			Thread sender = new Thread(new ClientSender(socket, args[0]));//args[0]은 id(name)
+			Thread sender = new Thread(new ClientSender(socket, args[0]));//
 			Thread receiver = new Thread(new ClientReceiver(socket));
 
 			sender.start();

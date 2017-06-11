@@ -1,78 +1,78 @@
-package Practice;
-
-import java.util.ArrayList;
-
-import org.hamcrest.core.SubstringMatcher;
-
-public class WooJaeProb_5_25 {
-
-	public static void main(String[] args) {
-		String str = "1#PROD-001#X-note#Samsung#3#6000000";
-		String[] strs = stringSplit(str, "#");
-		System.out.println("=== ¹®ÀÚ¿­ Ã³¸® °á°ú ===");
-		for (int i = 0; i < strs.length; i++) {
-			System.out.println(strs[i]);
-		}
-	}
-
-	private static String[] stringSplit(String str1, String str2) {
-		// ±¸ÇöÇÏ½Ã¿À.
-		
-		// ¹æ¹ý 1
-		String word = "";
-		ArrayList<String> words = new ArrayList<>();
-
-		for (int i = 0; i < str1.length(); i++) {
-
-			// #Ç¥½Ã°¡ ³ª¿À¸é ´õÀÌ»ó ¹®ÀÚ ¾Ê³Ö°í words¹è¿­¿¡ ¿Ï¼ºµÈ ´Ü¾î »ðÀÔ 
-			if (str1.charAt(i) == str2.charAt(0)) {
-				//#ÀÌ Ã¹¹øÂ°À§Ä¡¿¡ ÀÖÀ» ¶§ ¿¹¿ÜÃ³¸®
-				if(i==0){
-					continue;
-				}
-				words.add(word);
-				word = "";
-				continue;
-			}
-			// ¸¶Áö¸· ¹®ÀÚÀÏ °æ¿ì ¿¹¿ÜÃ³¸®
-			else if (i == str1.length() - 1) {
-				word += str1.charAt(i);
-				words.add(word);
-				break;
-			}
-			// ¹®ÀÚ¸¦ ³Ö¾îÁÜ
-			word += str1.charAt(i);
-		}
-
-		// ´Ü¾î ¼ö Å©±âÀÇ ¹è¿­
-		String[] s = new String[words.size()];
-
-		// °¢ ´Ü¾î¹è¿­µéÀ» StringÀ¸·Î ¸¸µé¾îÁÜ
-		words.toArray(s);
-		return s;
-		
-		
-		//¹æ¹ý 2
-//		ArrayList<String> list = new ArrayList<>();
-//		
-//		int startIndex =0;
-//		int endIndex = str1.indexOf(str2);
-//		while(true){
-//			if(startIndex<str1.length()||){
-//				list.add(str1.substring(startIndex,endIndex));
-//				startIndex = endIndex+1;
-//			}
-//			
-//	
+//package Practice;
+//
+//import java.util.ArrayList;
+//
+//import org.hamcrest.core.SubstringMatcher;
+//
+//public class WooJaeProb_5_25 {
+//
+//	public static void main(String[] args) {
+//		String str = "1#PROD-001#X-note#Samsung#3#6000000";
+//		String[] strs = stringSplit(str, "#");
+//		System.out.println("=== ï¿½ï¿½ï¿½Ú¿ï¿½ Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½ ===");
+//		for (int i = 0; i < strs.length; i++) {
+//			System.out.println(strs[i]);
 //		}
+//	}
+//
+//	private static String[] stringSplit(String str1, String str2) {
+//		// ï¿½ï¿½ï¿½ï¿½ï¿½Ï½Ã¿ï¿½.
 //		
-//		
-//		
-//		
-//		String[] s = new String[list.size()];
+//		// ï¿½ï¿½ï¿½ 1
+//		String word = "";
+//		ArrayList<String> words = new ArrayList<>();
+//
+//		for (int i = 0; i < str1.length(); i++) {
+//
+//			// #Ç¥ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì»ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê³Ö°ï¿½ wordsï¿½è¿­ï¿½ï¿½ ï¿½Ï¼ï¿½ï¿½ï¿½ ï¿½Ü¾ï¿½ ï¿½ï¿½ï¿½ï¿½ 
+//			if (str1.charAt(i) == str2.charAt(0)) {
+//				//#ï¿½ï¿½ Ã¹ï¿½ï¿½Â°ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã³ï¿½ï¿½
+//				if(i==0){
+//					continue;
+//				}
+//				words.add(word);
+//				word = "";
+//				continue;
+//			}
+//			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã³ï¿½ï¿½
+//			else if (i == str1.length() - 1) {
+//				word += str1.charAt(i);
+//				words.add(word);
+//				break;
+//			}
+//			// ï¿½ï¿½ï¿½Ú¸ï¿½ ï¿½Ö¾ï¿½ï¿½ï¿½
+//			word += str1.charAt(i);
+//		}
+//
+//		// ï¿½Ü¾ï¿½ ï¿½ï¿½ Å©ï¿½ï¿½ï¿½ï¿½ ï¿½è¿­
+//		String[] s = new String[words.size()];
+//
+//		// ï¿½ï¿½ ï¿½Ü¾ï¿½è¿­ï¿½ï¿½ï¿½ï¿½ Stringï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+//		words.toArray(s);
 //		return s;
-	}
-	
-		
-	
-}
+//		
+//		
+//		//ï¿½ï¿½ï¿½ 2
+////		ArrayList<String> list = new ArrayList<>();
+////		
+////		int startIndex =0;
+////		int endIndex = str1.indexOf(str2);
+////		while(true){
+////			if(startIndex<str1.length()||){
+////				list.add(str1.substring(startIndex,endIndex));
+////				startIndex = endIndex+1;
+////			}
+////			
+////	
+////		}
+////		
+////		
+////		
+////		
+////		String[] s = new String[list.size()];
+////		return s;
+//	}
+//	
+//		
+//	
+//}

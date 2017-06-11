@@ -5,6 +5,7 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -12,9 +13,12 @@ import java.util.Map;
 
 public class Server {
 	HashMap<String, DataOutputStream> clients;
+	ArrayList<String> names;
 
 	Server() {
 		clients = new HashMap<String, DataOutputStream>();
+		names = new ArrayList<>();
+		names.add("2|");//index for names
 		Map<String, DataOutputStream> synchronizedMap = Collections.synchronizedMap(clients);// thread ����ȭ
 	}
 
@@ -59,18 +63,25 @@ public class Server {
 			String name = "";
 			try {
 				name = in.readUTF();
-				sendToAll("#" + name + "");
-
+				names.add(name);
+				sendToAll("--- " + name + " 님이 입장하셨습니다. ---");
+				
 				clients.put(name, out);
-				System.out.println("" + clients.size() + "");
-
+				System.out.println(clients.size() + " users");
+				
+				//refresh textArea, userlist(by sending message,userlist)
 				while (in != null) {
+					//userlist
+					sendToAll(String.join("\n",names));
+					//message
 					sendToAll(in.readUTF());
 				}
 			} catch (IOException e) {
 				e.printStackTrace();
 			} finally {
-				sendToAll("#" + name + "");
+				sendToAll("--- " + name + " 님이 퇴장하셨습니다. ---");
+				names.remove(name);
+				sendToAll(String.join("\n",names));
 				clients.remove(name);
 				System.out.println("" + clients.size() + "");
 			}
@@ -93,6 +104,7 @@ public class Server {
 			}
 		}
 	}
+	
 
 	public static void main(String[] args) {
 		new Server().start();

@@ -8,6 +8,10 @@ import javax.swing.JTextArea;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -15,7 +19,11 @@ import java.net.Socket;
 import java.net.UnknownHostException;
 import java.util.Scanner;
 import javax.swing.JLabel;
+import javax.swing.JScrollBar;
 import javax.swing.SwingConstants;
+import javax.swing.JTable;
+import javax.swing.JToggleButton;
+import javax.swing.JScrollPane;
 
 public class ClientFrame extends JFrame implements ActionListener {
 
@@ -25,33 +33,85 @@ public class ClientFrame extends JFrame implements ActionListener {
 	ClientSender sender;
 	ClientReceiver receiver;
 	String userName;
+	JTextArea userList;
 
 	public ClientFrame(String userName) {
 		getContentPane().setLayout(null);
 		this.userName = userName;
 
-		this.setSize(500, 500);
+		this.setSize(400, 500);
 
 		textInput = new JTextField();
-		textInput.setBounds(19, 246, 130, 26);
+		textInput.setBounds(6, 430, 203, 42);
 		getContentPane().add(textInput);
-		textInput.setColumns(10);
 
 		sendButton = new JButton("send");
-		sendButton.setBounds(165, 246, 117, 29);
+		sendButton.setBounds(206, 430, 66, 42);
 		getContentPane().add(sendButton);
 		sendButton.addActionListener(this);
 
+		// add scrollbar(textarea surround with)
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(10, 32, 260, 392);
+		getContentPane().add(scrollPane);
+
 		content = new JTextArea();
-		content.setBounds(19, 29, 130, 205);
-		getContentPane().add(content);
+		scrollPane.setViewportView(content);
+		content.setLineWrap(true);
+		content.setWrapStyleWord(true);
+		content.setEditable(false);
 
 		JLabel roomTitleLabel = new JLabel("room title");
 		roomTitleLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		roomTitleLabel.setBounds(28, 6, 103, 16);
+		roomTitleLabel.setBounds(84, 6, 110, 26);
 		getContentPane().add(roomTitleLabel);
 
+		JScrollPane scrollPane_1 = new JScrollPane();
+		scrollPane_1.setBounds(278, 32, 113, 180);
+		getContentPane().add(scrollPane_1);
+
+		userList = new JTextArea();
+		userList.setWrapStyleWord(true);
+		userList.setLineWrap(true);
+		scrollPane_1.setViewportView(userList);
+		userList.setEditable(false);
+
+		JLabel lblUser = new JLabel("User");
+		lblUser.setHorizontalAlignment(SwingConstants.CENTER);
+		lblUser.setBounds(301, 6, 66, 26);
+		getContentPane().add(lblUser);
+
+		JButton loginButton = new JButton("logout");
+		loginButton.setBounds(274, 248, 117, 26);
+		getContentPane().add(loginButton);
+
+		JLabel idLabel = new JLabel(userName); // show current id in label
+		idLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		idLabel.setBounds(324, 224, 61, 16);
+		getContentPane().add(idLabel);
+
+		JLabel lblNewLabel_1 = new JLabel("ID   :");
+		lblNewLabel_1.setBounds(282, 224, 30, 16);
+		getContentPane().add(lblNewLabel_1);
+
 		this.setVisible(true);
+
+		this.addWindowListener(new WindowAdapter() {
+			public void windowClosing(WindowEvent w) {
+				System.exit(0);
+			}
+		});
+
+		// apply enter key
+		textInput.addKeyListener(new KeyAdapter() {
+			public void keyReleased(KeyEvent e) {
+				char keyCode = e.getKeyChar();
+				if (keyCode == KeyEvent.VK_ENTER) {
+					sender.send(textInput.getText());
+					textInput.setText("");
+				}
+			}
+		});
 
 		// client create
 		String serverIp = "192.168.0.4";
@@ -116,9 +176,15 @@ public class ClientFrame extends JFrame implements ActionListener {
 		}
 	}
 
+	// print message in content
 	public void setMessage(String message) {
 		this.content.append(message);
 		this.content.append("\n");
+	}
+
+	// print usernames in userlist
+	public void setUsers(String name) {
+		this.userList.setText(name);
 	}
 
 	// message receiving object
@@ -138,7 +204,15 @@ public class ClientFrame extends JFrame implements ActionListener {
 		public void run() {
 			while (in != null) {
 				try {
-					ClientFrame.this.setMessage(in.readUTF());//refresh textarea
+					String temp = in.readUTF();
+					// userlist refresh
+					if (temp.contains("2|")) {
+						ClientFrame.this.setUsers("");
+						ClientFrame.this.setUsers(temp.substring(3));
+					} // refresh textarea
+					else {
+						ClientFrame.this.setMessage(temp);
+					}
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
